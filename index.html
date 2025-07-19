@@ -11,7 +11,7 @@
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- Custom Styles -->
     <style>
@@ -107,6 +107,50 @@
             color: #ef4444; /* Red color */
             font-weight: 600;
         }
+
+        /* Styles for the 3D scroll journey on the homepage */
+        .content-section {
+            min-height: 100vh;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 2rem;
+            position: relative;
+        }
+        .text-box {
+            max-width: 28rem;
+            background-color: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+        .text-box h2 {
+            font-size: 2.25rem;
+            font-weight: 900;
+            color: #60a5fa; /* text-blue-400 */
+            margin-bottom: 1rem;
+        }
+        .text-box p {
+            font-size: 1.125rem;
+            color: #d1d5db;
+        }
+        .scroll-prompt {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #9ca3af;
+            animation: bounce 2s infinite;
+            z-index: 10;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+            40% { transform: translate(-50%, -15px); }
+            60% { transform: translate(-50%, -5px); }
+        }
+
     </style>
 </head>
 <body class="antialiased">
@@ -155,16 +199,51 @@
 
             <!-- Home Page -->
             <main id="home" class="page">
-                <!-- Hero Section -->
-                <section class="h-screen flex items-center justify-center text-center relative overflow-hidden px-4">
-                    <div class="container mx-auto">
-                        <h2 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-4 reveal">
-                            From <span class="text-red-500">Idea</span> to <span class="text-blue-400">Impact</span>
+                <section id="hero" class="content-section">
+                     <div class="text-center mx-auto">
+                        <h2 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-4">
+                            The Entrepreneur's Journey
                         </h2>
-                        <p class="text-lg md:text-xl text-neutral-300 max-w-3xl mx-auto mb-8 reveal" style="transition-delay: 0.2s;">
-                            Fostering the next generation of innovators and entrepreneurs at Symbiosis Institute of Technology, Hyderabad.
+                        <p class="text-lg md:text-xl text-neutral-300 max-w-3xl mx-auto mb-8">
+                           A visual exploration of the path from idea to impact.
                         </p>
-                        <a href="#about" class="nav-trigger bg-white text-black font-bold py-3 px-8 rounded-full text-lg hover:bg-neutral-200 transition-all inline-block reveal" style="transition-delay: 0.4s;">
+                        <div class="scroll-prompt">Scroll to explore</div>
+                    </div>
+                </section>
+
+                <section id="idea-section" class="content-section">
+                    <div class="text-box">
+                        <h2>The Spark</h2>
+                        <p>Every startup begins with a moment of inspiration. It's a flash of insight, a connection between thoughts that forms a new, brilliant concept.</p>
+                    </div>
+                </section>
+
+                <section id="funding-section" class="content-section">
+                    <div class="text-box">
+                        <h2>The Crystal</h2>
+                        <p>An idea must be refined and polished. This stage is about securing the resources to build, turning a raw concept into a valuable, multi-faceted plan.</p>
+                    </div>
+                </section>
+
+                <section id="development-section" class="content-section">
+                    <div class="text-box">
+                        <h2>The Network</h2>
+                        <p>With a solid plan, it's time to build. This is the phase of intense work, connecting components and systems to create a robust and intricate product.</p>
+                    </div>
+                </section>
+
+                <section id="launch-section" class="content-section">
+                    <div class="text-box">
+                        <h2>The Expansion</h2>
+                        <p>The product is ready for the world. This is the exciting moment of liftoff, expanding your reach, gathering feedback, and growing towards new horizons.</p>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <div class="text-center mx-auto">
+                        <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Ready to Start Your Journey?</h2>
+                        <p class="text-lg text-neutral-300 mb-8">Explore what the E-Cell has to offer.</p>
+                        <a href="#about" class="nav-trigger bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-10 rounded-full text-xl transition-all inline-block">
                             Discover More
                         </a>
                     </div>
@@ -174,163 +253,196 @@
             <!-- About Page -->
             <main id="about" class="page py-24 md:py-32">
                 <section class="container mx-auto px-4">
-                    <div class="text-center mb-12 md:mb-16">
-                        <h3 class="text-4xl md:text-5xl font-bold text-white reveal">About Us</h3>
-                    </div>
+                    <div class="text-center mb-12 md:mb-16"><h3 class="text-4xl md:text-5xl font-bold text-white reveal">About Us</h3></div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                        <div class="reveal">
-                            <h3 class="text-3xl md:text-4xl font-bold text-white mb-4">Our Vision</h3>
-                            <p class="text-neutral-300 text-lg">To create a vibrant and inclusive entrepreneurial ecosystem at SIT Hyderabad that nurtures innovation, enables start-ups, and empowers students, faculty, and alumni to become visionary entrepreneurs and change makers.</p>
-                        </div>
-                        <div class="reveal">
-                             <h3 class="text-3xl md:text-4xl font-bold text-white mb-4">Our Mission</h3>
-                            <ul class="list-disc list-inside space-y-2 text-neutral-300 text-lg">
-                                <li>Inspire and support the entrepreneurial aspirations of SIT stakeholders.</li>
-                                <li>Institutionalize innovation as a core value across all activities.</li>
-                                <li>Enable pre-incubation, incubation, and funding support for impactful startups.</li>
-                                <li>Foster interdisciplinary collaboration and national/international linkages.</li>
-                            </ul>
-                        </div>
+                        <div class="reveal"><h3 class="text-3xl md:text-4xl font-bold text-white mb-4">Our Vision</h3><p class="text-neutral-300 text-lg">To create a vibrant and inclusive entrepreneurial ecosystem at SIT Hyderabad that nurtures innovation, enables start-ups, and empowers students, faculty, and alumni to become visionary entrepreneurs and change makers.</p></div>
+                        <div class="reveal"><h3 class="text-3xl md:text-4xl font-bold text-white mb-4">Our Mission</h3><ul class="list-disc list-inside space-y-2 text-neutral-300 text-lg"><li>Inspire and support the entrepreneurial aspirations of SIT stakeholders.</li><li>Institutionalize innovation as a core value across all activities.</li><li>Enable pre-incubation, incubation, and funding support for impactful startups.</li><li>Foster interdisciplinary collaboration and national/international linkages.</li></ul></div>
                     </div>
                 </section>
-                <section id="initiatives" class="py-16 md:py-28 mt-16 bg-blue-950 bg-opacity-20">
-                    <div class="container mx-auto px-4">
-                        <div class="text-center mb-12 md:mb-16">
-                            <h3 class="text-3xl md:text-4xl font-bold text-white reveal">Our Strategic Initiatives</h3>
-                            <p class="text-neutral-400 mt-2 max-w-2xl mx-auto reveal">We are building a robust ecosystem to support every stage of the entrepreneurial journey.</p>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            <div class="glass-card p-6 rounded-2xl reveal"><h4 class="text-xl font-semibold text-white mb-2">Governance & Structure</h4><p class="text-neutral-300">A dedicated E-Cell guided by a multi-stakeholder committee of faculty, alumni, and industry leaders.</p></div>
-                            <div class="glass-card p-6 rounded-2xl reveal"><h4 class="text-xl font-semibold text-white mb-2">Pre-Incubation & Infra</h4><p class="text-neutral-300">Access to a dedicated E-Cell office, pre-incubation lab, and innovation spaces on campus.</p></div>
-                            <div class="glass-card p-6 rounded-2xl reveal"><h4 class="text-xl font-semibold text-white mb-2">Innovation Support & Funding</h4><p class="text-neutral-300">An Innovation Fund to support prototyping, patent filing, and seed grants, backed by institutional and external sources.</p></div>
-                            <div class="glass-card p-6 rounded-2xl reveal"><h4 class="text-xl font-semibold text-white mb-2">Flexible Startup Policy</h4><p class="text-neutral-300">Academic credits, semester breaks, and relaxed attendance for students pursuing their ventures.</p></div>
-                            <div class="glass-card p-6 rounded-2xl reveal"><h4 class="text-xl font-semibold text-white mb-2">Curriculum & Pedagogy</h4><p class="text-neutral-300">Hands-on workshops, design thinking training, and guest lectures embedded within the curriculum.</p></div>
-                            <div class="glass-card p-6 rounded-2xl reveal"><h4 class="text-xl font-semibold text-white mb-2">Ecosystem Engagement</h4><p class="text-neutral-300">Strong linkages with T-Hub, NASSCOM, TiE, and an active alumni network for mentorship and funding.</p></div>
-                        </div>
-                    </div>
+                <section class="py-16 md:py-28 mt-16 bg-blue-950 bg-opacity-20">
+                    <div class="container mx-auto px-4"><div class="text-center mb-12 md:mb-16"><h3 class="text-3xl md:text-4xl font-bold text-white reveal">Our Strategic Initiatives</h3><p class="text-neutral-400 mt-2 max-w-2xl mx-auto reveal">We are building a robust ecosystem to support every stage of the entrepreneurial journey.</p></div><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"><div class="glass-card p-6 rounded-2xl reveal"><h4 class="text-xl font-semibold text-white mb-2">Governance & Structure</h4><p class="text-neutral-300">A dedicated E-Cell guided by a multi-stakeholder committee of faculty, alumni, and industry leaders.</p></div><div class="glass-card p-6 rounded-2xl reveal"><h4 class="text-xl font-semibold text-white mb-2">Pre-Incubation & Infra</h4><p class="text-neutral-300">Access to a dedicated E-Cell office, pre-incubation lab, and innovation spaces on campus.</p></div><div class="glass-card p-6 rounded-2xl reveal"><h4 class="text-xl font-semibold text-white mb-2">Innovation Support & Funding</h4><p class="text-neutral-300">An Innovation Fund to support prototyping, patent filing, and seed grants.</p></div><div class="glass-card p-6 rounded-2xl reveal"><h4 class="text-xl font-semibold text-white mb-2">Flexible Startup Policy</h4><p class="text-neutral-300">Academic credits, semester breaks, and relaxed attendance for students pursuing their ventures.</p></div><div class="glass-card p-6 rounded-2xl reveal"><h4 class="text-xl font-semibold text-white mb-2">Curriculum & Pedagogy</h4><p class="text-neutral-300">Hands-on workshops, design thinking training, and guest lectures embedded within the curriculum.</p></div><div class="glass-card p-6 rounded-2xl reveal"><h4 class="text-xl font-semibold text-white mb-2">Ecosystem Engagement</h4><p class="text-neutral-300">Strong linkages with T-Hub, NASSCOM, TiE, and an active alumni network.</p></div></div></div>
                 </section>
             </main>
 
             <!-- Events Page -->
             <main id="events" class="page py-24 md:py-32">
-                <section class="container mx-auto px-4">
-                    <div class="text-center mb-12 md:mb-16">
-                        <h3 class="text-4xl md:text-5xl font-bold text-white reveal">Events & Workshops</h3>
-                        <p class="text-neutral-400 mt-2 max-w-2xl mx-auto reveal">Join our upcoming sessions to learn, network, and grow.</p>
-                    </div>
-                    
-                    <h4 class="text-2xl md:text-3xl font-bold text-white mb-8 reveal">Upcoming Events</h4>
-                    <div class="space-y-8">
-                        <!-- Event Item 1 -->
-                        <div class="glass-card rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center gap-6 reveal">
-                            <div class="text-center md:text-left">
-                                <div class="text-red-500 font-bold text-xl">AUG</div>
-                                <div class="text-4xl font-extrabold text-white">15</div>
-                            </div>
-                            <div class="flex-grow text-center md:text-left">
-                                <h5 class="text-xl md:text-2xl font-bold text-white">Idea Validation Bootcamp</h5>
-                                <p class="text-neutral-300 mt-1">A full-day intensive workshop on testing your startup ideas before you build.</p>
-                            </div>
-                            <a href="#" class="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition-all w-full md:w-auto text-center">Register Now</a>
-                        </div>
-                        <!-- Event Item 2 -->
-                        <div class="glass-card rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center gap-6 reveal">
-                            <div class="text-center md:text-left">
-                                <div class="text-red-500 font-bold text-xl">SEP</div>
-                                <div class="text-4xl font-extrabold text-white">05</div>
-                            </div>
-                            <div class="flex-grow text-center md:text-left">
-                                <h5 class="text-xl md:text-2xl font-bold text-white">Fireside Chat with a Unicorn Founder</h5>
-                                <p class="text-neutral-300 mt-1">An exclusive interactive session with a successful entrepreneur. Speaker TBA.</p>
-                            </div>
-                            <a href="#" class="bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg w-full md:w-auto text-center cursor-not-allowed opacity-70">Coming Soon</a>
-                        </div>
-                    </div>
-
-                    <h4 class="text-2xl md:text-3xl font-bold text-white mb-8 mt-16 md:mt-24 reveal">Past Events</h4>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <div class="glass-card p-6 rounded-2xl reveal">
-                            <p class="text-sm text-blue-400 font-semibold">June 2025</p>
-                            <h5 class="text-xl font-semibold text-white mt-1">Pitch Deck Masterclass</h5>
-                            <p class="text-neutral-300 mt-2">Learned how to craft a compelling story for investors.</p>
-                        </div>
-                        <div class="glass-card p-6 rounded-2xl reveal">
-                            <p class="text-sm text-blue-400 font-semibold">May 2025</p>
-                            <h5 class="text-xl font-semibold text-white mt-1">Startup Networking Night</h5>
-                            <p class="text-neutral-300 mt-2">Connected student founders with mentors and peers.</p>
-                        </div>
-                        <div class="glass-card p-6 rounded-2xl reveal">
-                            <p class="text-sm text-blue-400 font-semibold">April 2025</p>
-                            <h5 class="text-xl font-semibold text-white mt-1">Hackathon for Social Good</h5>
-                            <p class="text-neutral-300 mt-2">Built innovative solutions for community challenges.</p>
-                        </div>
-                    </div>
-                </section>
+                <section class="container mx-auto px-4"><div class="text-center mb-12 md:mb-16"><h3 class="text-4xl md:text-5xl font-bold text-white reveal">Events & Workshops</h3><p class="text-neutral-400 mt-2 max-w-2xl mx-auto reveal">Join our upcoming sessions to learn, network, and grow.</p></div><h4 class="text-2xl md:text-3xl font-bold text-white mb-8 reveal">Upcoming Events</h4><div class="space-y-8"><div class="glass-card rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center gap-6 reveal"><div class="text-center md:text-left"><div class="text-red-500 font-bold text-xl">AUG</div><div class="text-4xl font-extrabold text-white">15</div></div><div class="flex-grow text-center md:text-left"><h5 class="text-xl md:text-2xl font-bold text-white">Idea Validation Bootcamp</h5><p class="text-neutral-300 mt-1">A full-day intensive workshop on testing your startup ideas before you build.</p></div><a href="#" class="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition-all w-full md:w-auto text-center">Register Now</a></div><div class="glass-card rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center gap-6 reveal"><div class="text-center md:text-left"><div class="text-red-500 font-bold text-xl">SEP</div><div class="text-4xl font-extrabold text-white">05</div></div><div class="flex-grow text-center md:text-left"><h5 class="text-xl md:text-2xl font-bold text-white">Fireside Chat with a Unicorn Founder</h5><p class="text-neutral-300 mt-1">An exclusive interactive session with a successful entrepreneur. Speaker TBA.</p></div><a href="#" class="bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg w-full md:w-auto text-center cursor-not-allowed opacity-70">Coming Soon</a></div></div><h4 class="text-2xl md:text-3xl font-bold text-white mb-8 mt-16 md:mt-24 reveal">Past Events</h4><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"><div class="glass-card p-6 rounded-2xl reveal"><p class="text-sm text-blue-400 font-semibold">June 2025</p><h5 class="text-xl font-semibold text-white mt-1">Pitch Deck Masterclass</h5><p class="text-neutral-300 mt-2">Learned how to craft a compelling story for investors.</p></div><div class="glass-card p-6 rounded-2xl reveal"><p class="text-sm text-blue-400 font-semibold">May 2025</p><h5 class="text-xl font-semibold text-white mt-1">Startup Networking Night</h5><p class="text-neutral-300 mt-2">Connected student founders with mentors and peers.</p></div><div class="glass-card p-6 rounded-2xl reveal"><p class="text-sm text-blue-400 font-semibold">April 2025</p><h5 class="text-xl font-semibold text-white mt-1">Hackathon for Social Good</h5><p class="text-neutral-300 mt-2">Built innovative solutions for community challenges.</p></div></div></section>
             </main>
 
             <!-- Team Page -->
             <main id="team" class="page py-24 md:py-32">
-                <section class="container mx-auto px-4">
-                    <div class="text-center mb-12 md:mb-16">
-                        <h3 class="text-4xl md:text-5xl font-bold text-white reveal">Our Guiding Force</h3>
-                        <p class="text-neutral-400 mt-2 max-w-2xl mx-auto reveal">Meet the faculty, mentors, and student leaders dedicated to your success.</p>
-                    </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                        <div class="glass-card text-center p-6 rounded-2xl reveal"><img src="https://placehold.co/150x150/050A1A/e5e5e5?text=RA" class="w-28 h-28 rounded-full mx-auto mb-4 border-2 border-red-500" alt="Dr. Rajanikanth Aluvalu"><h5 class="text-lg font-bold text-white">Dr. Rajanikanth Aluvalu</h5><p class="text-blue-400 text-sm">Director & Chairperson</p></div>
-                        <div class="glass-card text-center p-6 rounded-2xl reveal"><img src="https://placehold.co/150x150/050A1A/e5e5e5?text=SP" class="w-28 h-28 rounded-full mx-auto mb-4 border-2 border-red-500" alt="Mr. Sai Prashanth"><h5 class="text-lg font-bold text-white">Mr. Sai Prashanth</h5><p class="text-blue-400 text-sm">Head, E-Cell & Convenor</p></div>
-                        <div class="glass-card text-center p-6 rounded-2xl reveal"><img src="https://placehold.co/150x150/050A1A/e5e5e5?text=AP" class="w-28 h-28 rounded-full mx-auto mb-4 border-2 border-red-500" alt="Dr. Amulya Prasad Panda"><h5 class="text-lg font-bold text-white">Dr. Amulya Prasad Panda</h5><p class="text-blue-400 text-sm">Head, IIC & Co-Convenor</p></div>
-                        <div class="glass-card text-center p-6 rounded-2xl reveal"><img src="https://placehold.co/150x150/050A1A/e5e5e5?text=SB" class="w-28 h-28 rounded-full mx-auto mb-4 border-2 border-red-500" alt="Dr. Sriram Birudavolu"><h5 class="text-lg font-bold text-white">Dr. Sriram Birudavolu</h5><p class="text-blue-400 text-sm">Advisor (CEO, DSCI)</p></div>
-                        <div class="glass-card text-center p-6 rounded-2xl reveal"><img src="https://placehold.co/150x150/050A1A/e5e5e5?text=VA" class="w-28 h-28 rounded-full mx-auto mb-4 border-2 border-red-500" alt="Mr. Vinay Chakravarthy Addanki"><h5 class="text-lg font-bold text-white">Mr. Vinay C. Addanki</h5><p class="text-blue-400 text-sm">President, E-Cell</p></div>
-                        <div class="glass-card text-center p-6 rounded-2xl reveal"><img src="https://placehold.co/150x150/050A1A/e5e5e5?text=SI" class="w-28 h-28 rounded-full mx-auto mb-4 border-2 border-red-500" alt="Mr. Sujay Indupuru"><h5 class="text-lg font-bold text-white">Mr. Sujay Indupuru</h5><p class="text-blue-400 text-sm">Vice President, E-Cell</p></div>
-                        <div class="glass-card text-center p-6 rounded-2xl reveal"><img src="https://placehold.co/150x150/050A1A/e5e5e5?text=PK" class="w-28 h-28 rounded-full mx-auto mb-4 border-2 border-red-500" alt="Mr. P Karthik"><h5 class="text-lg font-bold text-white">Mr. P Karthik</h5><p class="text-blue-400 text-sm">Logistics & Partnership Head</p></div>
-                        <div class="glass-card text-center p-6 rounded-2xl reveal"><img src="https://placehold.co/150x150/050A1A/e5e5e5?text=GS" class="w-28 h-28 rounded-full mx-auto mb-4 border-2 border-red-500" alt="Mr. Gunda Ravi Partha Sarathi"><h5 class="text-lg font-bold text-white">Mr. G. R. P. Sarathi</h5><p class="text-blue-400 text-sm">Student Engagement Coordinator</p></div>
-                    </div>
-                </section>
+                <section class="container mx-auto px-4"><div class="text-center mb-12 md:mb-16"><h3 class="text-4xl md:text-5xl font-bold text-white reveal">Our Guiding Force</h3><p class="text-neutral-400 mt-2 max-w-2xl mx-auto reveal">Meet the faculty, mentors, and student leaders dedicated to your success.</p></div><div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"><div class="glass-card text-center p-6 rounded-2xl reveal"><img src="https://placehold.co/150x150/050A1A/e5e5e5?text=RA" class="w-28 h-28 rounded-full mx-auto mb-4 border-2 border-red-500" alt="Dr. Rajanikanth Aluvalu"><h5 class="text-lg font-bold text-white">Dr. Rajanikanth Aluvalu</h5><p class="text-blue-400 text-sm">Director & Chairperson</p></div><div class="glass-card text-center p-6 rounded-2xl reveal"><img src="https://placehold.co/150x150/050A1A/e5e5e5?text=SP" class="w-28 h-28 rounded-full mx-auto mb-4 border-2 border-red-500" alt="Mr. Sai Prashanth"><h5 class="text-lg font-bold text-white">Mr. Sai Prashanth</h5><p class="text-blue-400 text-sm">Head, E-Cell & Convenor</p></div><div class="glass-card text-center p-6 rounded-2xl reveal"><img src="https://placehold.co/150x150/050A1A/e5e5e5?text=AP" class="w-28 h-28 rounded-full mx-auto mb-4 border-2 border-red-500" alt="Dr. Amulya Prasad Panda"><h5 class="text-lg font-bold text-white">Dr. Amulya Prasad Panda</h5><p class="text-blue-400 text-sm">Head, IIC & Co-Convenor</p></div><div class="glass-card text-center p-6 rounded-2xl reveal"><img src="https://placehold.co/150x150/050A1A/e5e5e5?text=SB" class="w-28 h-28 rounded-full mx-auto mb-4 border-2 border-red-500" alt="Dr. Sriram Birudavolu"><h5 class="text-lg font-bold text-white">Dr. Sriram Birudavolu</h5><p class="text-blue-400 text-sm">Advisor (CEO, DSCI)</p></div><div class="glass-card text-center p-6 rounded-2xl reveal"><img src="https://placehold.co/150x150/050A1A/e5e5e5?text=VA" class="w-28 h-28 rounded-full mx-auto mb-4 border-2 border-red-500" alt="Mr. Vinay Chakravarthy Addanki"><h5 class="text-lg font-bold text-white">Mr. Vinay C. Addanki</h5><p class="text-blue-400 text-sm">President, E-Cell</p></div><div class="glass-card text-center p-6 rounded-2xl reveal"><img src="https://placehold.co/150x150/050A1A/e5e5e5?text=SI" class="w-28 h-28 rounded-full mx-auto mb-4 border-2 border-red-500" alt="Mr. Sujay Indupuru"><h5 class="text-lg font-bold text-white">Mr. Sujay Indupuru</h5><p class="text-blue-400 text-sm">Vice President, E-Cell</p></div><div class="glass-card text-center p-6 rounded-2xl reveal"><img src="https://placehold.co/150x150/050A1A/e5e5e5?text=PK" class="w-28 h-28 rounded-full mx-auto mb-4 border-2 border-red-500" alt="Mr. P Karthik"><h5 class="text-lg font-bold text-white">Mr. P Karthik</h5><p class="text-blue-400 text-sm">Logistics & Partnership Head</p></div><div class="glass-card text-center p-6 rounded-2xl reveal"><img src="https://placehold.co/150x150/050A1A/e5e5e5?text=GS" class="w-28 h-28 rounded-full mx-auto mb-4 border-2 border-red-500" alt="Mr. Gunda Ravi Partha Sarathi"><h5 class="text-lg font-bold text-white">Mr. G. R. P. Sarathi</h5><p class="text-blue-400 text-sm">Student Engagement Coordinator</p></div></div></section>
             </main>
 
             <!-- Policy Page -->
             <main id="policy" class="page py-24 md:py-32">
-                <section class="container mx-auto px-4">
-                    <div class="text-center mb-12 md:mb-16">
-                        <h3 class="text-4xl md:text-5xl font-bold text-white reveal">I&E Policy</h3>
-                        <p class="text-neutral-400 mt-2 max-w-2xl mx-auto reveal">Our commitment to empowering innovators is codified in our institutional policy.</p>
-                    </div>
-                    <div class="max-w-4xl mx-auto space-y-4">
-                        <div class="glass-card rounded-xl reveal"><button class="accordion-header w-full flex justify-between items-center p-5 text-left font-semibold text-white"><span>Strategies and Governance</span><svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="accordion-content"><p class="p-5 pt-0 text-neutral-300">We foster a vibrant entrepreneurial ecosystem, constitute a multi-stakeholder committee, create a sustainable financial model, and engage with national and international innovation networks to drive institutional innovation.</p></div></div>
-                        <div class="glass-card rounded-xl reveal"><button class="accordion-header w-full flex justify-between items-center p-5 text-left font-semibold text-white"><span>Nurturing Innovations & Start-ups</span><svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="accordion-content"><p class="p-5 pt-0 text-neutral-300">We provide access to E-Cell facilities, facilitate collaborations with regional incubators, support IP filings, and allow academic flexibility (semester breaks, credits) for students to work on their startups. Faculty can also take sabbaticals to pursue entrepreneurial ventures.</p></div></div>
-                        <div class="glass-card rounded-xl reveal"><button class="accordion-header w-full flex justify-between items-center p-5 text-left font-semibold text-white"><span>Attendance Relaxation & Participation</span><svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="accordion-content"><p class="p-5 pt-0 text-neutral-300">Students representing SIT at recognized entrepreneurship events or actively involved in validated ventures may be considered for attendance exemption, subject to prior written approval from the Director, based on formal application and endorsement.</p></div></div>
-                    </div>
-                    <div class="text-center mt-12 reveal">
-                        <h4 class="text-xl font-semibold text-white mb-4">Official Policy Documents</h4>
-                        <div class="flex flex-col sm:flex-row justify-center gap-4"><a href="#" class="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition-all">National Policy PDF</a><a href="#" class="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition-all">Telangana Policy PDF</a></div>
-                    </div>
-                </section>
+                <section class="container mx-auto px-4"><div class="text-center mb-12 md:mb-16"><h3 class="text-4xl md:text-5xl font-bold text-white reveal">I&E Policy</h3><p class="text-neutral-400 mt-2 max-w-2xl mx-auto reveal">Our commitment to empowering innovators is codified in our institutional policy.</p></div><div class="max-w-4xl mx-auto space-y-4"><div class="glass-card rounded-xl reveal"><button class="accordion-header w-full flex justify-between items-center p-5 text-left font-semibold text-white"><span>Strategies and Governance</span><svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="accordion-content"><p class="p-5 pt-0 text-neutral-300">We foster a vibrant entrepreneurial ecosystem, constitute a multi-stakeholder committee, create a sustainable financial model, and engage with national and international innovation networks to drive institutional innovation.</p></div></div><div class="glass-card rounded-xl reveal"><button class="accordion-header w-full flex justify-between items-center p-5 text-left font-semibold text-white"><span>Nurturing Innovations & Start-ups</span><svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="accordion-content"><p class="p-5 pt-0 text-neutral-300">We provide access to E-Cell facilities, facilitate collaborations with regional incubators, support IP filings, and allow academic flexibility (semester breaks, credits) for students to work on their startups. Faculty can also take sabbaticals to pursue entrepreneurial ventures.</p></div></div><div class="glass-card rounded-xl reveal"><button class="accordion-header w-full flex justify-between items-center p-5 text-left font-semibold text-white"><span>Attendance Relaxation & Participation</span><svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="accordion-content"><p class="p-5 pt-0 text-neutral-300">Students representing SIT at recognized entrepreneurship events or actively involved in validated ventures may be considered for attendance exemption, subject to prior written approval from the Director, based on formal application and endorsement.</p></div></div></div><div class="text-center mt-12 reveal"><h4 class="text-xl font-semibold text-white mb-4">Official Policy Documents</h4><div class="flex flex-col sm:flex-row justify-center gap-4"><a href="#" class="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition-all">National Policy PDF</a><a href="#" class="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition-all">Telangana Policy PDF</a></div></div></section>
             </main>
             
             <!-- Contact Page -->
             <main id="contact" class="page py-24 md:py-32">
-                 <footer class="container mx-auto px-4 text-center">
-                    <h3 class="text-4xl md:text-5xl font-bold text-white mb-4 reveal">Get in Touch</h3>
-                    <div class="max-w-2xl mx-auto text-neutral-300 reveal">
-                        <p class="font-semibold text-lg">Mr. Sai Prashanth Mallellu</p>
-                        <p>Head, Entrepreneurship and Start-up Cell (E-Cell)</p>
-                        <p class="mt-2">Email: <a href="mailto:placements@sithyd.siu.edu.in" class="text-red-400 hover:underline">placements@sithyd.siu.edu.in</a></p>
-                        <p class="mt-6 text-neutral-400">
-                            Symbiosis Institute of Technology, Hyderabad<br>
-                            Survey Number 292, Off Bangalore Highway, Modallaguda (V), Nandigama (M),<br>
-                            Rangareddy Dist, Hyderabad, Telangana, India - 509217
-                        </p>
-                    </div>
-                    <p class="text-neutral-500 text-sm mt-12">&copy; 2024 E-Cell, Symbiosis Institute of Technology, Hyderabad. All Rights Reserved.</p>
-                </footer>
+                 <footer class="container mx-auto px-4 text-center"><h3 class="text-4xl md:text-5xl font-bold text-white mb-4 reveal">Get in Touch</h3><div class="max-w-2xl mx-auto text-neutral-300 reveal"><p class="font-semibold text-lg">Mr. Sai Prashanth Mallellu</p><p>Head, Entrepreneurship and Start-up Cell (E-Cell)</p><p class="mt-2">Email: <a href="mailto:placements@sithyd.siu.edu.in" class="text-red-400 hover:underline">placements@sithyd.siu.edu.in</a></p><p class="mt-6 text-neutral-400">Symbiosis Institute of Technology, Hyderabad<br>Survey Number 292, Off Bangalore Highway, Modallaguda (V), Nandigama (M),<br>Rangareddy Dist, Hyderabad, Telangana, India - 509217</p></div><p class="text-neutral-500 text-sm mt-12">&copy; 2024 E-Cell, Symbiosis Institute of Technology, Hyderabad. All Rights Reserved.</p></footer>
             </main>
         </div>
     </div>
 
     <!-- Three.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script type="module">
+        import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js";
 
-    <script>
+        let scene, camera, renderer, sceneObjects = [], cameraTargetPosition, cameraTargetLookAt;
+        let isHomePageActive = false;
+
+        const stagePositions = [
+            new THREE.Vector3(0, 2, 20),    // Stage 0: Hero
+            new THREE.Vector3(0, 0, 15),    // Stage 1: The Spark
+            new THREE.Vector3(25, 0, 15),   // Stage 2: The Crystal
+            new THREE.Vector3(50, 0, 15),   // Stage 3: The Network
+            new THREE.Vector3(75, 0, 15)    // Stage 4: The Expansion
+        ];
+        const stageLookAt = [
+            new THREE.Vector3(0, 2, 0),
+            new THREE.Vector3(0, 0, 0),
+            new THREE.Vector3(25, 0, 0),
+            new THREE.Vector3(50, 0, 0),
+            new THREE.Vector3(75, 0, 0)
+        ];
+
+        function init3D() {
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('bg-canvas'), antialias: true, alpha: true });
+            renderer.setPixelRatio(window.devicePixelRatio);
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            camera.position.set(0, 2, 20);
+
+            cameraTargetPosition = new THREE.Vector3().copy(stagePositions[0]);
+            cameraTargetLookAt = new THREE.Vector3().copy(stageLookAt[0]);
+
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+            scene.add(ambientLight);
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 1.5);
+            directionalLight.position.set(15, 10, 10);
+            scene.add(directionalLight);
+            
+            const redLight = new THREE.PointLight(0xef4444, 1, 50);
+            scene.add(redLight);
+            const blueLight = new THREE.PointLight(0x3b82f6, 1, 50);
+            scene.add(blueLight);
+
+            createSceneObjects();
+            addStars();
+            animate();
+        }
+
+        function createSceneObjects() {
+            // 1. The Spark (Idea)
+            const sparkGroup = new THREE.Group();
+            const coreGeo = new THREE.IcosahedronGeometry(0.5, 1);
+            const coreMat = new THREE.MeshStandardMaterial({ color: 0xffffff, emissive: 0xffffff, emissiveIntensity: 2, metalness: 0.5, roughness: 0.2 });
+            const core = new THREE.Mesh(coreGeo, coreMat);
+            sparkGroup.add(core);
+
+            const particleGeo = new THREE.BufferGeometry();
+            const particleVertices = [];
+            for (let i = 0; i < 200; i++) {
+                particleVertices.push( (Math.random() - 0.5) * 5, (Math.random() - 0.5) * 5, (Math.random() - 0.5) * 5 );
+            }
+            particleGeo.setAttribute('position', new THREE.Float32BufferAttribute(particleVertices, 3));
+            const particleMat = new THREE.PointsMaterial({ color: 0x60a5fa, size: 0.05 });
+            const particles = new THREE.Points(particleGeo, particleMat);
+            sparkGroup.add(particles);
+            sceneObjects.push(sparkGroup);
+
+            // 2. The Crystal (Funding)
+            const crystalGeo = new THREE.IcosahedronGeometry(2.5, 0);
+            const crystalMat = new THREE.MeshStandardMaterial({
+                color: 0x3b82f6,
+                metalness: 0.8,
+                roughness: 0.1,
+                transparent: true,
+                opacity: 0.8,
+                envMapIntensity: 10,
+            });
+            const crystal = new THREE.Mesh(crystalGeo, crystalMat);
+            sceneObjects.push(crystal);
+
+            // 3. The Network (Development)
+            const networkGroup = new THREE.Group();
+            const ring1 = new THREE.Mesh(new THREE.TorusGeometry(2, 0.1, 16, 100), new THREE.MeshStandardMaterial({ color: 0xef4444, metalness: 0.9, roughness: 0.2 }));
+            const ring2 = ring1.clone();
+            ring2.rotation.x = Math.PI / 2;
+            const ring3 = ring1.clone();
+            ring3.rotation.y = Math.PI / 2;
+            networkGroup.add(ring1, ring2, ring3);
+            sceneObjects.push(networkGroup);
+
+            // 4. The Expansion (Launch)
+            const expansionGeo = new THREE.TorusKnotGeometry(1.8, 0.5, 150, 20);
+            const expansionMat = new THREE.MeshStandardMaterial({ color: 0xffffff, emissive: 0xef4444, metalness: 0.7, roughness: 0.3 });
+            const expansion = new THREE.Mesh(expansionGeo, expansionMat);
+            sceneObjects.push(expansion);
+
+            sceneObjects.forEach((obj, index) => {
+                obj.position.x = stagePositions[index + 1].x;
+                scene.add(obj);
+            });
+        }
+
+        function addStars() {
+            const starGeo = new THREE.BufferGeometry();
+            const starMat = new THREE.PointsMaterial({color:0xffffff,size:0.1});
+            const vertices = [];
+            for(let i=0; i<10000; i++) {
+                const x = (Math.random() - 0.5) * 200;
+                const y = (Math.random() - 0.5) * 200;
+                const z = (Math.random() - 0.5) * 200;
+                vertices.push(x, y, z);
+            }
+            starGeo.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+            const stars = new THREE.Points(starGeo, starMat);
+            scene.add(stars);
+        }
+
+        function moveCameraToStage(stageIndex) {
+            cameraTargetPosition.copy(stagePositions[stageIndex]);
+            cameraTargetLookAt.copy(stageLookAt[stageIndex]);
+        }
+
+        const clock = new THREE.Clock();
+        function animate() {
+            if (!renderer) return;
+            requestAnimationFrame(animate);
+            const elapsedTime = clock.getElapsedTime();
+            
+            if (isHomePageActive && sceneObjects.length > 0) {
+                // Animate Spark
+                sceneObjects[0].rotation.y = elapsedTime * 0.2;
+                sceneObjects[0].children[0].material.emissiveIntensity = 1.5 + Math.sin(elapsedTime * 5);
+                
+                // Animate Crystal
+                sceneObjects[1].rotation.x = elapsedTime * 0.1;
+                sceneObjects[1].rotation.y = elapsedTime * 0.2;
+
+                // Animate Network
+                sceneObjects[2].rotation.x = -elapsedTime * 0.1;
+                sceneObjects[2].rotation.y = elapsedTime * 0.15;
+
+                // Animate Expansion
+                const scale = 1 + Math.sin(elapsedTime * 0.5) * 0.1;
+                sceneObjects[3].scale.set(scale, scale, scale);
+                sceneObjects[3].rotation.y = elapsedTime * 0.1;
+            }
+
+            camera.position.lerp(cameraTargetPosition, 0.03);
+            const currentLookAt = new THREE.Vector3();
+            camera.getWorldDirection(currentLookAt).add(camera.position);
+            currentLookAt.lerp(cameraTargetLookAt, 0.03);
+            camera.lookAt(currentLookAt);
+
+            renderer.render(scene, camera);
+        }
+
         // --- Page Navigation Logic ---
         const pageTriggers = document.querySelectorAll('.nav-trigger');
         const pages = document.querySelectorAll('.page');
@@ -338,29 +450,21 @@
         const mobileNavLinks = document.querySelectorAll('#mobile-nav-links .nav-link');
 
         function showPage(pageId) {
-            // Hide all pages
             pages.forEach(page => page.classList.remove('active'));
-            // Show the target page
             const targetPage = document.getElementById(pageId);
             if (targetPage) {
                 targetPage.classList.add('active');
-                window.scrollTo(0, 0); // Scroll to top of new page
+                window.scrollTo(0, 0);
             }
 
-            // Update active state for nav links
+            isHomePageActive = (pageId === 'home');
+            document.getElementById('bg-canvas').style.display = 'block';
+
             const updateLinks = (links) => {
-                links.forEach(link => {
-                    if (link.getAttribute('href') === `#${pageId}`) {
-                        link.classList.add('active');
-                    } else {
-                        link.classList.remove('active');
-                    }
-                });
+                links.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${pageId}`));
             };
             updateLinks(desktopNavLinks);
             updateLinks(mobileNavLinks);
-
-            // Update URL hash
             window.location.hash = pageId;
         }
 
@@ -372,92 +476,43 @@
             });
         });
 
-        // Show initial page based on URL hash or default to home
         const initialPage = window.location.hash.substring(1) || 'home';
         showPage(initialPage);
-
+        init3D();
 
         // --- Mobile Menu Logic ---
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileNav = document.getElementById('mobile-nav');
         const mobileNavTriggers = document.querySelectorAll('#mobile-nav .nav-trigger');
-
-        function toggleMenu() {
-            mobileNav.classList.toggle('-translate-x-full');
-        }
-
+        function toggleMenu() { mobileNav.classList.toggle('-translate-x-full'); }
         mobileMenuButton.addEventListener('click', toggleMenu);
-        mobileNavTriggers.forEach(link => {
-            link.addEventListener('click', toggleMenu);
-        });
+        mobileNavTriggers.forEach(link => link.addEventListener('click', toggleMenu));
 
-
-        // --- 3D Background Animation ---
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ canvas: document.querySelector('#bg-canvas'), alpha: true });
-        renderer.setPixelRatio(window.devicePixelRatio);
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        camera.position.setZ(5);
-
-        const logoGroup = new THREE.Group();
-        const ringGeometry = new THREE.TorusGeometry(1.5, 0.05, 16, 100);
-        const ringMaterial = new THREE.MeshStandardMaterial({ color: 0x3b82f6, metalness: 0.8, roughness: 0.3 });
-        const ring = new THREE.Mesh(ringGeometry, ringMaterial);
-        logoGroup.add(ring);
-        const sphereGeometry = new THREE.SphereGeometry(0.5, 32, 32);
-        const sphereMaterial = new THREE.MeshStandardMaterial({ color: 0xdc2626, metalness: 0.7, roughness: 0.4 });
-        const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
-        logoGroup.add(sphere);
-        const dotCount = 8;
-        const dotRadius = 1.2;
-        for (let i = 0; i < dotCount; i++) {
-            const angle = (i / dotCount) * Math.PI * 2;
-            const dotGeometry = new THREE.SphereGeometry(0.1, 16, 16);
-            const dotMaterial = new THREE.MeshStandardMaterial({ color: 0x3b82f6, metalness: 0.9, roughness: 0.5 });
-            const dot = new THREE.Mesh(dotGeometry, dotMaterial);
-            dot.position.x = Math.cos(angle) * dotRadius;
-            dot.position.y = Math.sin(angle) * dotRadius;
-            logoGroup.add(dot);
-        }
-        scene.add(logoGroup);
-
-        const redLight = new THREE.PointLight(0xdc2626, 1.5, 10);
-        redLight.position.set(-3, 2, 4);
-        const blueLight = new THREE.PointLight(0x3b82f6, 1.5, 10);
-        blueLight.position.set(3, -2, 4);
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
-        scene.add(redLight, blueLight, ambientLight);
-
-        let mouseX = 0, mouseY = 0;
-        document.addEventListener('mousemove', (event) => {
-            mouseX = (event.clientX / window.innerWidth) * 2 - 1;
-            mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
-        });
-        
-        function animate() {
-            requestAnimationFrame(animate);
-            logoGroup.rotation.x += 0.001;
-            logoGroup.rotation.y += 0.002;
-            camera.position.x += (mouseX * 2 - camera.position.x) * 0.02;
-            camera.position.y += (mouseY * 2 - camera.position.y) * 0.02;
-            camera.lookAt(scene.position);
-            renderer.render(scene, camera);
-        }
-        animate();
-
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        });
-
-        // --- Scroll Reveal Animation ---
-        const revealObserver = new IntersectionObserver((entries) => {
+        // --- Scroll-based camera movement for Home page ---
+        const homeSections = document.querySelectorAll('#home .content-section');
+        const homeObserver = new IntersectionObserver((entries) => {
+            if (!isHomePageActive) return;
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    const sectionId = entry.target.id;
+                    let sectionIndex = 0;
+                    if (sectionId === 'idea-section') sectionIndex = 1;
+                    if (sectionId === 'funding-section') sectionIndex = 2;
+                    if (sectionId === 'development-section') sectionIndex = 3;
+                    if (sectionId === 'launch-section') sectionIndex = 4;
+                    // For the final "Discover More" button section
+                    if(entry.target.querySelector('a.nav-trigger')) sectionIndex = 4;
+
+                    moveCameraToStage(sectionIndex);
                 }
+            });
+        }, { threshold: 0.5 });
+        homeSections.forEach(section => homeObserver.observe(section));
+
+        // --- General reveal animations for other pages ---
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
             });
         }, { threshold: 0.1 });
         
@@ -465,18 +520,9 @@
             const revealElements = document.querySelectorAll('.page.active .reveal');
             revealElements.forEach(el => revealObserver.observe(el));
         }
-        // Initial observation
+        const pageObserver = new MutationObserver(() => observeReveals());
+        pages.forEach(page => pageObserver.observe(page, { attributes: true, attributeFilter: ['class'] }));
         observeReveals();
-        // Re-observe when page changes
-        const pageObserver = new MutationObserver((mutations) => {
-            for (const mutation of mutations) {
-                if (mutation.attributeName === 'class') {
-                    observeReveals();
-                }
-            }
-        });
-        pages.forEach(page => pageObserver.observe(page, { attributes: true }));
-
 
         // --- Accordion Logic ---
         const accordionHeaders = document.querySelectorAll('.accordion-header');
@@ -493,6 +539,7 @@
                 }
             });
         });
+
     </script>
 </body>
 </html>
